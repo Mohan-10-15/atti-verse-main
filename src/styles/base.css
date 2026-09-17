@@ -7,8 +7,8 @@
   opacity: 0;
   transform: translateY(28px);
   transition:
-    opacity 0.9s var(--ease-out),
-    transform 0.9s var(--ease-out);
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
@@ -116,8 +116,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(55% 90% at 84% 16%, rgba(212, 175, 55, 0.16), transparent 62%),
-    radial-gradient(48% 70% at 6% 92%, rgba(4, 120, 87, 0.22), transparent 62%),
+    radial-gradient(55% 90% at 84% 16%, rgba(176, 140, 64, 0.16), transparent 62%),
+    radial-gradient(48% 70% at 6% 92%, rgba(47, 74, 74, 0.22), transparent 62%),
     repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.016) 0 1px, transparent 1px 90px);
   pointer-events: none;
 }
@@ -136,8 +136,8 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(2, 28, 22, 0.42) 0%,
-    rgba(2, 28, 22, 0.72) 62%,
+    rgba(7, 13, 13, 0.42) 0%,
+    rgba(7, 13, 13, 0.72) 62%,
     var(--emerald-bg) 100%
   );
 }
@@ -360,7 +360,7 @@
 /* ---------- Hero entrance lines ---------- */
 .hero-line {
   opacity: 0;
-  animation: heroUp 1s var(--ease-out) both;
+  animation: heroUp 0.7s var(--ease-out) both;
 }
 
 @keyframes heroUp {
@@ -379,9 +379,9 @@
   background: linear-gradient(
     100deg,
     #e9cd7c 10%,
-    #d4af37 34%,
+    #b08c40 34%,
     #f4e2a4 50%,
-    #d4af37 66%,
+    #b08c40 66%,
     #e9cd7c 92%
   );
   background-size: 220% 100%;

@@ -5,28 +5,28 @@
 
 :root {
   /* ---- Emerald (dominant brand, near-black base) ---- */
-  --emerald-950: #021C16;
-  --emerald-900: #02251C;
-  --emerald-850: #032E24;
-  --emerald-800: #06382B;
-  --emerald-700: #0A4434;
+  --emerald-950: #0C1818;
+  --emerald-900: #102020;
+  --emerald-850: #132121;
+  --emerald-800: #152727;
+  --emerald-700: #1C2F2F;
 
-  --emerald-black: #011811;
+  --emerald-black: #070D0D;
   --emerald-home: #102020;
-  --emerald-bg: #021C16;
-  --emerald-deep: #02251C;
-  --emerald-mid: #032E24;
-  --emerald-soft: #06382B;
+  --emerald-bg: #102020;
+  --emerald-deep: #0C1818;
+  --emerald-mid: #152727;
+  --emerald-soft: #1C2F2F;
 
-  /* ---- Luxury gold (restrained accent) ---- */
-  --gold: #D4AF37;
-  --gold-soft: #E0C56E;
-  --gold-muted: #C8A951;
-  --gold-deep: #B89435;
-  --gold-dark: #8F7228;
-  --gold-faint: rgba(212, 175, 55, 0.18);
-  --gold-line: rgba(212, 175, 55, 0.42);
-  --gold-line-soft: rgba(212, 175, 55, 0.2);
+  /* ---- Antique bronze gold (muted, matches logo) ---- */
+  --gold: #B08C40;
+  --gold-soft: #DFC383;
+  --gold-muted: #C9A45B;
+  --gold-deep: #9A7A32;
+  --gold-dark: #7C6128;
+  --gold-faint: rgba(176, 140, 64, 0.22);
+  --gold-line: rgba(176, 140, 64, 0.42);
+  --gold-line-soft: rgba(176, 140, 64, 0.2);
 
   /* ---- White / near-white content (all backgrounds are dark) ---- */
   --white: #FFFFFF;
@@ -58,9 +58,9 @@
   --radius-pill: 999px;
 
   /* ---- Effects ---- */
-  --shadow-soft: 0 24px 60px -24px rgba(2, 28, 22, 0.55);
-  --shadow-lift: 0 30px 70px -30px rgba(2, 28, 22, 0.6);
-  --shadow-gold: 0 14px 34px -14px rgba(212, 175, 55, 0.4);
+  --shadow-soft: 0 24px 60px -24px rgba(7, 13, 13, 0.55);
+  --shadow-lift: 0 30px 70px -30px rgba(7, 13, 13, 0.6);
+  --shadow-gold: 0 14px 34px -14px rgba(176, 140, 64, 0.4);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
   --header-h: 76px;
@@ -380,7 +380,7 @@ h6 {
 
 .btn--gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 40px -16px rgba(212, 175, 55, 0.55);
+  box-shadow: 0 18px 40px -16px rgba(176, 140, 64, 0.55);
 }
 
 .btn--outline {

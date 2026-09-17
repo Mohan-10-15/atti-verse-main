@@ -7,7 +7,6 @@ import Icon from '../components/ui/Icon.jsx'
 import CTASection from '../components/ui/CTASection.jsx'
 import WhyAttii from '../components/sections/WhyAttii.jsx'
 import ServicesIndex from '../components/sections/ServicesIndex.jsx'
-import ProductionShowcase from '../components/sections/ProductionShowcase.jsx'
 import TalentSection from '../components/sections/TalentSection.jsx'
 import CouncilSlider from '../components/sections/CouncilSlider.jsx'
 import EventCard from '../components/cards/EventCard.jsx'
@@ -53,59 +52,58 @@ function Hero() {
       <div className="hero__grain" aria-hidden="true" />
 
       <div className="hero__inner">
-        <div className="hero__top">
-          <p className="hero__eyebrow hero-line" style={{ animationDelay: '0.1s' }}>
-            Entertainment &amp; Productions
+        <div className="container">
+          <div className="hero__top">
+            <p className="hero__eyebrow hero-line" style={{ animationDelay: '0.05s' }}>
+              Entertainment &amp; Productions
+            </p>
+          </div>
+
+          <div className="hero__title-block hero-line" style={{ animationDelay: '0.12s' }}>
+            <h1 className="hero__brand-title">ATTII VERSE</h1>
+          </div>
+
+          <p className="hero__subtitle hero-line" style={{ animationDelay: '0.22s' }}>
+            CREATE THE MOMENT
           </p>
-        </div>
 
-        <div className="hero__brand-lockup hero-line" style={{ animationDelay: '0.18s' }}>
-          <span className="hero__brand-rule" />
-          <p>ATTII VERSE</p>
-          <span className="hero__brand-rule" />
-        </div>
+          <div className="hero__gold-rule hero-line" style={{ animationDelay: '0.28s' }} />
 
-        <div className="hero__title-block hero-line" style={{ animationDelay: '0.32s' }}>
-          <h1 className="hero__title-line hero__title-line--attii">CREATE</h1>
-          <h1 className="hero__title-line hero__title-line--verse">THE MOMENT</h1>
-        </div>
+          <p className="hero__tagline hero-line" style={{ animationDelay: '0.34s' }}>
+            Entertainment. Production. Experiences.
+          </p>
 
-        <div className="hero__gold-rule hero-line" style={{ animationDelay: '0.4s' }} />
+          <div className="hero__actions hero-line" style={{ animationDelay: '0.4s' }}>
+            <Link to="/work" className="btn btn--gold">
+              <span>Explore Our Work</span>
+              <Icon name="arrow-right" size={16} className="btn--icon-arrow" />
+            </Link>
+            <Link to="/contact" className="btn btn--outline">
+              <span>Work With Us</span>
+            </Link>
+          </div>
 
-        <p className="hero__tagline hero-line" style={{ animationDelay: '0.55s' }}>
-          Entertainment. Production. Experiences.
-        </p>
+          <div className="hero__meta hero-line" style={{ animationDelay: '0.46s' }}>
+            <span>Entertainment</span>
+            <span className="hero__meta-sep">/</span>
+            <span>Events</span>
+            <span className="hero__meta-sep">/</span>
+            <span>Production</span>
+            <span className="hero__meta-sep">/</span>
+            <span>Creative</span>
+          </div>
 
-        <div className="hero__actions hero-line" style={{ animationDelay: '0.7s' }}>
-          <Link to="/work" className="btn btn--gold">
-            <span>Explore Our Work</span>
-            <Icon name="arrow-right" size={16} className="btn--icon-arrow" />
-          </Link>
-          <Link to="/contact" className="btn btn--outline">
-            <span>Work With Us</span>
-          </Link>
-        </div>
-
-        <div className="hero__meta hero-line" style={{ animationDelay: '0.85s' }}>
-          <span>Entertainment</span>
-          <span className="hero__meta-sep">/</span>
-          <span>Events</span>
-          <span className="hero__meta-sep">/</span>
-          <span>Production</span>
-          <span className="hero__meta-sep">/</span>
-          <span>Creative</span>
-        </div>
-
-        <div className="hero__slides hero-line" style={{ animationDelay: '0.95s' }} aria-label="Hero image slideshow">
-          {HERO_SLIDES.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              className={`hero__slide-dot ${i === active ? 'is-active' : ''}`}
-              onClick={() => setActive(i)}
-              aria-label={`Slide ${i + 1}`}
-            />
-          ))}
+          <div className="hero__slides hero-line" style={{ animationDelay: '0.52s' }} aria-label="Hero image slideshow">
+            {HERO_SLIDES.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                className={`hero__slide-dot ${i === active ? 'is-active' : ''}`}
+                onClick={() => setActive(i)}
+                aria-label={`Slide ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -126,15 +124,8 @@ function Introduction() {
       <div className="container">
         <div className="intro-statement__layout">
           <div className="intro-statement__lines">
-            <Reveal dir="up">
-              <Img
-                src={IMAGES.logo}
-                alt="ATTII VERSE emblem"
-                className="intro-statement__logo"
-              />
-            </Reveal>
             {lines.map((line, i) => (
-              <Reveal key={line.text} dir="up" delay={i * 80}>
+              <Reveal key={line.text} dir="up" delay={i * 50}>
                 <p className={`intro-statement__line ${line.gold ? 'intro-statement__line--gold' : ''}`}>
                   {line.text}
                 </p>
@@ -142,7 +133,14 @@ function Introduction() {
             ))}
           </div>
 
-          <Reveal dir="up" delay={220} className="intro-statement__aside">
+          <Reveal dir="up" delay={140} className="intro-statement__aside">
+            <img
+              src={IMAGES.logo}
+              alt="ATTII VERSE emblem"
+              className="intro-statement__logo"
+              draggable={false}
+              onContextMenu={(event) => event.preventDefault()}
+            />
             <p className="intro-statement__eyebrow">THE ATTII VERSE</p>
             <p className="intro-statement__tagline">OUR TALENT. OUR VERSE.</p>
           </Reveal>
@@ -275,7 +273,6 @@ function Home() {
       <WhyAttii />
       <FeaturedWork />
       <FeaturedEvents />
-      <ProductionShowcase />
       <TalentSection />
       <Milestones />
       <CouncilSlider className="section--paper" />

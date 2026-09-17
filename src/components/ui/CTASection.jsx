@@ -11,15 +11,15 @@ function CTASection({ title = "LET'S CREATE SOMETHING.", copy, primary, secondar
             COLLABORATE
           </span>
         </Reveal>
-        <Reveal dir="up" delay={100}>
+        <Reveal dir="up" delay={60}>
           <h2 className="cta__title">{title}</h2>
         </Reveal>
         {copy && (
-          <Reveal dir="up" delay={180}>
+          <Reveal dir="up" delay={110}>
             <p className="cta__copy">{copy}</p>
           </Reveal>
         )}
-        <Reveal dir="up" delay={260}>
+        <Reveal dir="up" delay={160}>
           <div className="cta__actions">
             <Link to={primary?.to || '/contact'} className="btn btn--gold">
               <span>{primary?.label || 'START A COLLABORATION'}</span>

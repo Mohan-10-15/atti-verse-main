@@ -7,13 +7,28 @@ import { LEADERSHIP } from '../../data/team.js'
 
 const pad = (n) => String(n).padStart(2, '0')
 
-// Leadership slider — one member at a time, horizontal slide transition.
+const AUTOPLAY_MS = 5200
+
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+// Leadership slider — one member at a time, horizontal slide transition,
+// auto-advancing until the visitor hovers, focuses or prefers reduced motion.
 function CouncilSlider({ className = '', showCta = true, id = 'council' }) {
   const [active, setActive] = useState(0)
+  const [paused, setPaused] = useState(false)
   const count = LEADERSHIP.length
   const stageRef = useRef(null)
 
   const go = useCallback((dir) => setActive((a) => (a + dir + count) % count), [count])
+
+  // Auto-scroll: restarts on every change so manual navigation resets the timer.
+  useEffect(() => {
+    if (paused || count <= 1 || prefersReducedMotion()) return
+    const id = setTimeout(() => setActive((a) => (a + 1) % count), AUTOPLAY_MS)
+    return () => clearTimeout(id)
+  }, [active, paused, count])
 
   useEffect(() => {
     const node = stageRef.current
@@ -70,6 +85,10 @@ function CouncilSlider({ className = '', showCta = true, id = 'council' }) {
           role="group"
           aria-roledescription="carousel"
           aria-label="ATTII VERSE leadership"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onFocus={() => setPaused(true)}
+          onBlur={() => setPaused(false)}
         >
           <div
             className="council__track"
