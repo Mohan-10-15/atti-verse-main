@@ -4,7 +4,6 @@ import Reveal from '../components/ui/Reveal.jsx'
 import Icon from '../components/ui/Icon.jsx'
 import Img from '../components/ui/Img.jsx'
 import PageHeader from '../components/ui/PageHeader.jsx'
-import InstitutionalCTA from '../components/sections/InstitutionalCTA.jsx'
 import { IMAGES } from '../config/images.js'
 import { SITE, CONTACTS, CONTACT_PUBLISHED } from '../config/site.js'
 
@@ -118,8 +117,6 @@ function Contact() {
         title="LET'S CREATE SOMETHING WORTH REMEMBERING."
         subtitle="Have an event, production, creative project or collaboration in mind? Tell us what you're building."
       />
-
-      <InstitutionalCTA />
 
       <section className="section">
         <div className="container contact-grid">

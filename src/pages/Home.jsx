@@ -9,7 +9,6 @@ import WhyAttii from '../components/sections/WhyAttii.jsx'
 import ServicesIndex from '../components/sections/ServicesIndex.jsx'
 import ProductionShowcase from '../components/sections/ProductionShowcase.jsx'
 import TalentSection from '../components/sections/TalentSection.jsx'
-import InstitutionalCTA from '../components/sections/InstitutionalCTA.jsx'
 import CouncilSlider from '../components/sections/CouncilSlider.jsx'
 import EventCard from '../components/cards/EventCard.jsx'
 import { IMAGES } from '../config/images.js'
@@ -25,11 +24,15 @@ const HERO_SLIDES = [
   IMAGES.work.production,
 ]
 
+// Must match the Ken Burns duration in components.css so each slide
+// finishes its full pan/zoom before the next cross-fade begins.
+const HERO_SLIDE_MS = 7000
+
 function Hero() {
   const [active, setActive] = useState(0)
 
   useEffect(() => {
-    const id = setInterval(() => setActive((a) => (a + 1) % HERO_SLIDES.length), 6500)
+    const id = setInterval(() => setActive((a) => (a + 1) % HERO_SLIDES.length), HERO_SLIDE_MS)
     return () => clearInterval(id)
   }, [])
 
@@ -123,6 +126,13 @@ function Introduction() {
       <div className="container">
         <div className="intro-statement__layout">
           <div className="intro-statement__lines">
+            <Reveal dir="up">
+              <Img
+                src={IMAGES.logo}
+                alt="ATTII VERSE emblem"
+                className="intro-statement__logo"
+              />
+            </Reveal>
             {lines.map((line, i) => (
               <Reveal key={line.text} dir="up" delay={i * 80}>
                 <p className={`intro-statement__line ${line.gold ? 'intro-statement__line--gold' : ''}`}>
@@ -269,7 +279,6 @@ function Home() {
       <TalentSection />
       <Milestones />
       <CouncilSlider className="section--paper" />
-      <InstitutionalCTA />
       <CTASection
         title="LET'S CREATE SOMETHING WORTH REMEMBERING."
         copy={
