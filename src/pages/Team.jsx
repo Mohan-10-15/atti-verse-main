@@ -2,30 +2,10 @@ import Seo from '../components/ui/Seo.jsx'
 import Reveal from '../components/ui/Reveal.jsx'
 import SectionHeading from '../components/ui/SectionHeading.jsx'
 import PageHeader from '../components/ui/PageHeader.jsx'
-import TeamCard from '../components/cards/TeamCard.jsx'
+import CouncilSlider from '../components/sections/CouncilSlider.jsx'
 import CTASection from '../components/ui/CTASection.jsx'
 import { LEADERSHIP, TEAM_CATEGORIES } from '../data/team.js'
 import { PLACEHOLDER } from '../config/site.js'
-
-function Leadership() {
-  return (
-    <section className="section">
-      <div className="container">
-        <SectionHeading
-          center
-          eyebrow="Leadership"
-          title="THE DIRECTION OF THE VERSE"
-          subtitle="Every performance, production and event is powered by people who bring their own talent, creativity and commitment."
-        />
-        <div className="grid-4">
-          {LEADERSHIP.map((member, i) => (
-            <TeamCard key={member.id} member={member} index={i} />
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 function Responsibilities() {
   return (
@@ -107,7 +87,7 @@ function Team() {
         title="THE PEOPLE BEHIND ATTII VERSE"
         subtitle="Every performance, production and event is powered by people who bring their own talent, creativity and commitment."
       />
-      <Leadership />
+      <CouncilSlider id="leadership" showCta={false} />
       <Responsibilities />
       <Categories />
       <CTASection

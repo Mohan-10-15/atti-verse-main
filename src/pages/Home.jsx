@@ -10,11 +10,11 @@ import ServicesIndex from '../components/sections/ServicesIndex.jsx'
 import ProductionShowcase from '../components/sections/ProductionShowcase.jsx'
 import TalentSection from '../components/sections/TalentSection.jsx'
 import InstitutionalCTA from '../components/sections/InstitutionalCTA.jsx'
+import CouncilSlider from '../components/sections/CouncilSlider.jsx'
 import EventCard from '../components/cards/EventCard.jsx'
 import { IMAGES } from '../config/images.js'
 import { EVENTS } from '../data/events.js'
 import { WORK } from '../data/work.js'
-import { LEADERSHIP } from '../data/team.js'
 import { HOME_MILESTONES } from '../data/achievements.js'
 
 const HERO_SLIDES = [
@@ -121,13 +121,22 @@ function Introduction() {
   return (
     <section className="section intro-statement">
       <div className="container">
-        {lines.map((line, i) => (
-          <Reveal key={line.text} dir="up" delay={i * 100}>
-            <p className={`intro-statement__line ${line.gold ? 'intro-statement__line--gold' : ''}`}>
-              {line.text}
-            </p>
+        <div className="intro-statement__layout">
+          <div className="intro-statement__lines">
+            {lines.map((line, i) => (
+              <Reveal key={line.text} dir="up" delay={i * 80}>
+                <p className={`intro-statement__line ${line.gold ? 'intro-statement__line--gold' : ''}`}>
+                  {line.text}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal dir="up" delay={220} className="intro-statement__aside">
+            <p className="intro-statement__eyebrow">THE ATTII VERSE</p>
+            <p className="intro-statement__tagline">OUR TALENT. OUR VERSE.</p>
           </Reveal>
-        ))}
+        </div>
       </div>
     </section>
   )
@@ -242,56 +251,9 @@ function Milestones() {
   )
 }
 
-function TeamPreview() {
-  return (
-    <section className="section section--paper">
-      <div className="container">
-        <div className="team-equal">
-          <div className="team-equal__head">
-            <div className="section-head-row">
-              <Reveal dir="up">
-                <span className="eyebrow">Leadership</span>
-                <h2 className="section-title" style={{ marginTop: '1.1rem', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-                  THE PEOPLE
-                  <br />
-                  <span className="text-gold">BEHIND THE VERSE.</span>
-                </h2>
-              </Reveal>
-              <Reveal dir="up" delay={100}>
-                <Link to="/team" className="text-link" style={{ alignItems: 'center' }}>
-                  Meet Our Team →
-                </Link>
-              </Reveal>
-            </div>
-          </div>
-
-          <div className="team-equal__grid" style={{ marginTop: '2rem' }}>
-            {LEADERSHIP.map((member, i) => (
-              <Reveal key={member.id} dir="up" delay={i * 90}>
-                <article className="team-equal__card">
-                  <div className="team-equal__media">
-                    <Img src={member.image} alt={member.name} label={member.role.split('&')[0].trim()} index={String(i + 1).padStart(2, '0')} />
-                  </div>
-                  <div className="team-equal__info">
-                    <h3 className="team-equal__name">{member.name}</h3>
-                    <p className="team-equal__role">{member.role}</p>
-                    {member.designation && (
-                      <p className="team-equal__designation">{member.designation}</p>
-                    )}
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 function Home() {
   return (
-    <>
+    <div className="home-page">
       <Seo
         title="ATTII VERSE | Entertainment & Productions"
         description="ATTII VERSE Entertainment & Productions — a structured creative organization bringing together entertainment, event management, media production, creative services and talented creators."
@@ -306,7 +268,7 @@ function Home() {
       <ProductionShowcase />
       <TalentSection />
       <Milestones />
-      <TeamPreview />
+      <CouncilSlider className="section--paper" />
       <InstitutionalCTA />
       <CTASection
         title="LET'S CREATE SOMETHING WORTH REMEMBERING."
@@ -317,7 +279,7 @@ function Home() {
           </>
         }
       />
-    </>
+    </div>
   )
 }
 
